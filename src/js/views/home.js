@@ -7,5 +7,6 @@ import Lista from "../component/Lista";
 export const Home = () => (
 	<div className="text-center mt-5">
 		<Lista></Lista>
+		<Lista></Lista>
 	</div>
 );
