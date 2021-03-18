@@ -7,16 +7,29 @@ export const Single = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	return (
-		<div className="jumbotron">
-			<h1 className="display-4">This will show the demo element: {store.demo[params.theid].title}</h1>
-
-			<hr className="my-4" />
-
-			<Link to="/">
-				<span className="btn btn-primary btn-lg" href="#" role="button">
-					Back home
-				</span>
-			</Link>
+		<div className="container">
+			<div className="row">
+				<div className="col">
+					<img src="http://i.imgur.com/I86rTVl.jpg" />
+				</div>
+				<div className="col">
+					<h3>Este es un titulo</h3>
+					<p>
+						fjansdikf asdfjkahsd kfja sdkfjbakljsbdf af kjansdkfj abkljf askdjfb jahsd fadf fjansdikf
+						asdfjkahsd kfja sdkfjbakljsbdf af kjansdkfj abkljf askdjfb jahsd fadf fjansdikf asdfjkahsd kfja
+						sdkfjbakljsbdf af kjansdkfj abkljf askdjfb jahsd fadf fjansdikf asdfjkahsd kfja sdkfjbakljsbdf
+						af kjansdkfj abkljf askdjfb jahsd fadf fjansdikf asdfjkahsd kfja sdkfjbakljsbdf af kjansdkfj
+						abkljf askdjfb jahsd fadf fjansdikf asdfjkahsd kfja sdkfjbakljsbdf af kjansdkfj abkljf askdjfb
+						jahsd fadf fjansdikf asdfjkahsd kfja sdkfjbakljsbdf af kjansdkfj abkljf askdjfb jahsd fadf
+						fjansdikf asdfjkahsd kfja sdkfjbakljsbdf af kjansdkfj abkljf askdjfb jahsd fadf fjansdikf
+						asdfjkahsd kfja sdkfjbakljsbdf af kjansdkfj abkljf askdjfb jahsd fadf fjansdikf asdfjkahsd kfja
+						sdkfjbakljsbdf af kjansdkfj abkljf askdjfb jahsd fadf fjansdikf asdfjkahsd kfja sdkfjbakljsbdf
+						af kjansdkfj abkljf askdjfb jahsd fadf fjansdikf asdfjkahsd kfja sdkfjbakljsbdf af kjansdkfj
+						abkljf askdjfb jahsd fadf
+					</p>
+				</div>
+			</div>
+			<div className="row"></div>
 		</div>
 	);
 };

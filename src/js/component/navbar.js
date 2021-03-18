@@ -20,9 +20,15 @@ export const Navbar = () => {
 							Favorites <span className="badge badge-light">4</span>
 						</button>
 						<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a className="dropdown-item">Action</a>
-							<a className="dropdown-item">Another action</a>
-							<a className="dropdown-item">Something else here</a>
+							<a className="dropdown-item">
+								Action <i className="fas fa-trash float-right"></i>
+							</a>
+							<a className="dropdown-item">
+								Another action <i className="fas fa-trash float-right"></i>
+							</a>
+							<a className="dropdown-item">
+								Something else here <i className="fas fa-trash float-right"></i>
+							</a>
 						</div>
 					</div>
 				</div>
