@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			API_URL: "https://www.swapi.tech/api/",
 			demo: [
 				{
 					title: "FIRST",

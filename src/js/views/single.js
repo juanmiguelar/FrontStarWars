@@ -29,6 +29,7 @@ export const Single = props => {
 					</p>
 				</div>
 			</div>
+			<hr />
 			<div className="row"></div>
 		</div>
 	);
