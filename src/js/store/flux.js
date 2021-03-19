@@ -30,6 +30,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			addFav: fav => {
 				setStore({ favs: getStore().favs.concat([fav]) });
+			},
+			deleteFav: url => {
+				setStore({
+					favs: getStore().favs.filter(item => {
+						return item.url != url;
+					})
+				});
 			}
 		}
 	};

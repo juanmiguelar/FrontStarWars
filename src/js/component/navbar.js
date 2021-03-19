@@ -1,15 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
+	const deleteFav = (e, url) => {
+		actions.deleteFav(url);
+		e.stopPropagation();
+	};
+
 	const showFavs = () => {
 		return store.favs.map((item, index) => {
 			return (
 				<Link to={item.url} className="dropdown-item" key={index}>
-					{item.label} <i className="fas fa-trash float-right"></i>
+					{item.label}
+					<i
+						className="fas fa-trash float-right"
+						onClick={e => {
+							deleteFav(e, item.url);
+						}}></i>
 				</Link>
 			);
 		});
