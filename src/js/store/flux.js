@@ -2,18 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			API_URL: "https://www.swapi.tech/api/",
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			favs: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -38,6 +27,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			addFav: fav => {
+				setStore({ favs: getStore().favs.concat([fav]) });
 			}
 		}
 	};

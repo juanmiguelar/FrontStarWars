@@ -12,7 +12,7 @@ export const People = props => {
 
 	useEffect(() => {
 		getInfo();
-	}, []);
+	}, [params.theid]);
 
 	const getInfo = () => {
 		var requestOptions = {
