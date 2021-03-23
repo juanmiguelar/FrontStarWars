@@ -1,8 +1,10 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			API_URL: "https://www.swapi.tech/api/",
-			favs: []
+			API_URL: "https://www.swapi.tech/api",
+			favs: [],
+			planets: [],
+			people: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -10,9 +12,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+				var requestOptions = {
+					method: "GET",
+					mode: "no-cors"
+				};
+				// Obtener los planetas
+				fetch(getStore().API_URL + "/planets", requestOptions)
+					.then(res => {
+						return res.json();
+					})
+					.then(data => setStore({ planets: data.results }))
+					.catch(err => console.log(err));
+				fetch(getStore().API_URL + "/people", requestOptions)
+					.then(res => {
+						return res.json();
+					})
+					.then(data => setStore({ people: data.results }))
+					.catch(err => console.log(err));
 			},
 			changeColor: (index, color) => {
 				//get the store
@@ -29,6 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 			addFav: fav => {
+				//if(getStore().favs.find(x => x.))
 				setStore({ favs: getStore().favs.concat([fav]) });
 			},
 			deleteFav: url => {

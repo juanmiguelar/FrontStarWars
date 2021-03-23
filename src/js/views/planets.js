@@ -77,7 +77,7 @@ export const Planets = props => {
 		<div className="container">
 			<div className="row">
 				<div className="col">
-					<img src="http://i.imgur.com/I86rTVl.jpg" />
+					<img src="https://1000marcas.net/wp-content/uploads/2019/12/Star-Wars-Logo-600x338.png" />
 				</div>
 				<div className="col">{showInfo()}</div>
 			</div>

@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import Card from "../component/Card";
 import List from "../component/List";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<List title="Characters" route="people"></List>
-		<List title="Planets" route="planets"></List>
-	</div>
-);
+import { Context } from "../store/appContext";
+
+export const Home = () => {
+	const { store, actions } = useContext(Context);
+
+	return (
+		<div className="text-center mt-5">
+			<List title="Characters" list={store.people} route="people"></List>
+			<List title="Planets" list={store.planets} route="planets"></List>
+		</div>
+	);
+};

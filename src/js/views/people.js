@@ -8,7 +8,7 @@ export const People = props => {
 	const [info, setInfo] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 	const params = useParams();
-	const URL = store.API_URL + "people/" + params.theid;
+	const URL = store.API_URL + "/people/" + params.theid;
 
 	useEffect(() => {
 		getInfo();
@@ -77,7 +77,7 @@ export const People = props => {
 		<div className="container">
 			<div className="row">
 				<div className="col">
-					<img src="http://i.imgur.com/I86rTVl.jpg" />
+					<img src="https://1000marcas.net/wp-content/uploads/2019/12/Star-Wars-Logo-600x338.png" />
 				</div>
 				<div className="col">{showInfo()}</div>
 			</div>

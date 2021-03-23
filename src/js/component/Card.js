@@ -19,8 +19,12 @@ const Card = props => {
 	};
 
 	return (
-		<div className="card mr-5 ml-3 mb-2">
-			<img className="card-img-top" src="http://i.imgur.com/I86rTVl.jpg" alt="Card image cap" />
+		<div className="card mr-5 ml-3 mb-2 w-25">
+			<img
+				className="card-img-top"
+				src="https://1000marcas.net/wp-content/uploads/2019/12/Star-Wars-Logo-600x338.png"
+				alt="Card image cap"
+			/>
 			<div className="card-body">
 				<h5 className="card-title text-dark text-left">{props.title}</h5>
 				<p className="card-text text-secondary text-left">{props.description}</p>

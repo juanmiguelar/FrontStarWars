@@ -5,36 +5,11 @@ import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
 const List = props => {
-	const { store, actions } = useContext(Context);
-	const [list, setList] = useState([]);
-
-	useEffect(() => {
-		getListItems();
-	}, []);
-
-	const getListItems = () => {
-		const url = store.API_URL + props.route;
-
-		var requestOptions = {
-			method: "GET"
-		};
-
-		fetch(url, requestOptions)
-			.then(response => {
-				if (response.ok) {
-					return response.json();
-				}
-				throw Error("API status code: " + response.status);
-			})
-			.then(result => setList(result.results))
-			.catch(error => console.log("error", error));
-	};
-
 	return (
 		<div className="container mb-5">
 			<h3 className="text-left text-danger">{props.title}</h3>
 			<div className="scrolling-wrapper-flexbox">
-				{list.map((item, index) => {
+				{props.list.map((item, index) => {
 					return <Card title={item.name} route={props.route} id={item.uid} key={index} />;
 				})}
 			</div>
@@ -44,7 +19,8 @@ const List = props => {
 
 List.propTypes = {
 	title: PropTypes.string,
-	route: PropTypes.string
+	route: PropTypes.string,
+	list: PropTypes.array
 };
 
 export default List;

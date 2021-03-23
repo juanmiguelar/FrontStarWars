@@ -6,8 +6,9 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	const deleteFav = (e, url) => {
-		actions.deleteFav(url);
 		e.stopPropagation();
+		e.preventDefault();
+		actions.deleteFav(url);
 	};
 
 	const showFavs = () => {
