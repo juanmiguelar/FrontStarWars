@@ -11,10 +11,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadSomeData: () => {
+			loadSomeData: () => {},
+			loadPlanetsData: () => {
 				var requestOptions = {
-					method: "GET",
-					mode: "no-cors"
+					method: "GET"
 				};
 				// Obtener los planetas
 				fetch(getStore().API_URL + "/planets", requestOptions)
@@ -23,12 +23,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(data => setStore({ planets: data.results }))
 					.catch(err => console.log(err));
+			},
+			loadPeopleData: () => {
+				var requestOptions = {
+					method: "GET"
+				};
 				fetch(getStore().API_URL + "/people", requestOptions)
 					.then(res => {
 						return res.json();
 					})
 					.then(data => setStore({ people: data.results }))
 					.catch(err => console.log(err));
+			},
+			loadLocalStorageFavs: () => {
+				const localFavs = localStorage.getItem("favoritos_juan_blog");
+				if (localStorage.getItem("favoritos_juan_blog")) {
+					setStore({
+						favs: JSON.parse(localFavs)
+					});
+				}
 			},
 			changeColor: (index, color) => {
 				//get the store
@@ -46,7 +59,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			addFav: fav => {
 				//if(getStore().favs.find(x => x.))
-				setStore({ favs: getStore().favs.concat([fav]) });
+				const favCollection = getStore().favs.concat([fav]);
+				setStore({ favs: favCollection });
+				localStorage.setItem("favoritos_juan_blog", JSON.stringify(favCollection));
 			},
 			deleteFav: url => {
 				setStore({
