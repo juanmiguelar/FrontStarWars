@@ -32,8 +32,13 @@ const injectContext = PassedComponent => {
 			 *
 			 **/
 			state.actions.loadLocalStorageFavs();
-			state.actions.loadPlanetsData();
-			state.actions.loadPeopleData();
+			if (!state.actions.loadLocalStoragePlanets()) {
+				state.actions.loadPlanetsData();
+			}
+
+			if (!state.actions.loadLocalStoragePeople()) {
+				state.actions.loadPeopleData();
+			}
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

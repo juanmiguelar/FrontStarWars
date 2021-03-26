@@ -21,7 +21,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => {
 						return res.json();
 					})
-					.then(data => setStore({ planets: data.results }))
+					.then(data => {
+						setStore({ planets: data.results });
+						localStorage.setItem("planets_juan_blog", JSON.stringify(data.results));
+					})
 					.catch(err => console.log(err));
 			},
 			loadPeopleData: () => {
@@ -32,16 +35,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => {
 						return res.json();
 					})
-					.then(data => setStore({ people: data.results }))
+					.then(data => {
+						setStore({ people: data.results });
+						localStorage.setItem("people_juan_blog", JSON.stringify(data.results));
+					})
 					.catch(err => console.log(err));
 			},
 			loadLocalStorageFavs: () => {
 				const localFavs = localStorage.getItem("favoritos_juan_blog");
-				if (localStorage.getItem("favoritos_juan_blog")) {
+				if (localFavs) {
 					setStore({
 						favs: JSON.parse(localFavs)
 					});
 				}
+			},
+			loadLocalStoragePlanets: () => {
+				const localPlanets = localStorage.getItem("planets_juan_blog");
+				if (localPlanets) {
+					setStore({
+						planets: JSON.parse(localPlanets)
+					});
+					return true;
+				}
+				return false;
+			},
+			loadLocalStoragePeople: () => {
+				const localPeople = localStorage.getItem("people_juan_blog");
+				if (localPeople) {
+					setStore({
+						people: JSON.parse(localPeople)
+					});
+					return true;
+				}
+				return false;
 			},
 			changeColor: (index, color) => {
 				//get the store
