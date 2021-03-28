@@ -8,7 +8,7 @@ export const Planets = props => {
 	const [info, setInfo] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 	const params = useParams();
-	const URL = store.API_URL + "planets/" + params.theid;
+	const URL = store.API_URL + "/planets/" + params.theid;
 
 	useEffect(() => {
 		getInfo();
@@ -38,7 +38,7 @@ export const Planets = props => {
 	};
 
 	const showInfo = () => {
-		if (isLoading) {
+		if (isLoading || !info) {
 			return <h2>Please wait!</h2>;
 		} else {
 			return (
