@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			API_URL: "https://www.swapi.tech/api",
+			API_URL: process.env.BACKEND_URL,
 			favs: [],
 			planets: [],
 			people: []

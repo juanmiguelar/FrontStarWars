@@ -10,7 +10,7 @@ const List = props => {
 			<h3 className="text-left text-danger">{props.title}</h3>
 			<div className="scrolling-wrapper-flexbox">
 				{props.list.map((item, index) => {
-					return <Card title={item.name} route={props.route} id={item.uid} key={index} />;
+					return <Card title={item.name} route={props.route} id={item.id} key={index} />;
 				})}
 			</div>
 		</div>
