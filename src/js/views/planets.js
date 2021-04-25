@@ -28,7 +28,7 @@ export const Planets = props => {
 				throw Error("The status code: " + response.status);
 			})
 			.then(result => {
-				setInfo(result.result);
+				setInfo(result);
 				setIsLoading(false);
 			})
 			.catch(error => {
@@ -43,8 +43,16 @@ export const Planets = props => {
 		} else {
 			return (
 				<Fragment>
-					<h3>{info.properties.name}</h3>
-					<p>{info.description}</p>
+					<h3>{info.name}</h3>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet dui nec augue luctus
+						consequat nec sed orci. In sed mattis lorem. Aliquam erat volutpat. Aliquam pharetra
+						pellentesque nulla non gravida. Quisque volutpat ac elit eget tempus. Praesent euismod aliquam
+						mi, a fringilla magna cursus a. Mauris interdum magna in erat sagittis iaculis eget eu sapien.
+						Ut porttitor enim sed dolor vehicula tincidunt. Morbi a turpis accumsan, eleifend risus ac,
+						ornare massa. Vivamus sagittis nulla et consequat molestie. Nulla gravida ipsum eu mi finibus
+						ullamcorper{" "}
+					</p>
 				</Fragment>
 			);
 		}
@@ -53,9 +61,9 @@ export const Planets = props => {
 	const showProperties = () => {
 		if (!isLoading) {
 			let colList = [];
-			for (const key in info.properties) {
-				if (info.properties.hasOwnProperty(key)) {
-					const element = info.properties[key];
+			for (const key in info) {
+				if (info.hasOwnProperty(key)) {
+					const element = info[key];
 					colList.push(setPropertie(key, element));
 				}
 			}
