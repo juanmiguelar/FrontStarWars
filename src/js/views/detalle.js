@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const People = props => {
+export const Detalle = props => {
 	const { store, actions } = useContext(Context);
 	const [info, setInfo] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 	const params = useParams();
-	const URL = store.API_URL + "/people/" + params.theid;
+	const URL = store.API_URL + "/" + props.entidad + "/" + params.theid;
 
 	useEffect(() => {
 		getInfo();
@@ -95,6 +95,7 @@ export const People = props => {
 	);
 };
 
-People.propTypes = {
-	match: PropTypes.object
+Detalle.propTypes = {
+	match: PropTypes.object,
+	entidad: PropTypes.string
 };
